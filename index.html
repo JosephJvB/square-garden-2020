@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    header {
+      text-align: center;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      width: 400px;
+      height: 400px;
+      border-top: 1px solid black;
+      border-left: 1px solid black;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .row {
+      display: flex;
+      flex-direction: row;
+    }
+    .cell {
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+      background: white;
+      height: 19px;
+      width: 19px;
+    }
+    .cell.hidden {
+      background: #d2d2d2;
+    }
+    p {
+      margin: 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Least normal moments minecon</h1>
+  </header>
+  <main>
+  </main>
+  <footer>
+  </footer>
+  <script src="cell.js"></script>
+  <script src="row.js"></script>
+  <script src="board.js"></script>
+  <script type="text/javascript">
+    const rowNum = 20
+    const b = new Board()
+  </script>
+</body>
+</html>
