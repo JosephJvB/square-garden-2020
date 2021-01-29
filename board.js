@@ -11,6 +11,7 @@ class Board {
       }
       this.rows.push(r)
     }
+    // dunno why I did this. Generate board before rendering elements?
     for(const r of this.rows) this.el.appendChild(r.el)
   }
   checkWin() {
@@ -37,22 +38,22 @@ class Board {
     this.checkWin()
   }
   revealCell(cell) {
+    if(cell.clicked) return
+    cell.clicked = true
     if(cell.isMine) {
       return this.lose()
     }
-    if(cell.clicked) return
-    cell.clicked = true
-    cell.el.classList.remove('hidden')
+    cell.el.style.background = 'white'
     const mines = this.getNeighbourMines(cell)
     if(mines > 0) {
       const p = document.createElement('p')
       p.innerText = mines
       cell.el.appendChild(p)
     } else {
-      this.clickNeighbours(cell)
+      this.revealBlankNeighbours(cell)
     }
   }
-  clickNeighbours(cell) {
+  revealBlankNeighbours(cell) {
     for(const n of cell.neighbours) {
       const nc = this.rows[n.r] && this.rows[n.r].cells[n.c]
       if(!nc || nc.isMine) continue

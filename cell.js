@@ -5,7 +5,7 @@ class Cell {
   neighbours = [{r: 0, c: 0}]
   constructor(r, c) {
     this.el.classList.add('cell')
-    this.el.classList.add('hidden')
+    this.el.style.background = '#d2d2d2'
     this.isMine = Math.random() < 0.1
     // if(this.isMine) {
     //   this.el.style.background = 'red'
